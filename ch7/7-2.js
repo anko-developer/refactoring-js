@@ -11,12 +11,25 @@ export class Person {
   }
 
   get courses() {
-    return this.#courses;
+    return [...this.#courses];
   }
 
-  set courses(courses) {
-    this.#courses = courses;
+  addCourses(courses) {
+    this.#courses.push(courses);
   }
+
+  removeCourses(courses, runIfAbsent) {
+    const index = this.#courses.indexOf(courses);
+    if(index === -1) {
+      runIfAbsent();
+      return;
+    };
+    this.#courses.splice(index, 1);
+  }
+
+  // set courses(courses) {
+  //   this.#courses = courses;
+  // }
 }
 
 export class Course {
@@ -37,5 +50,9 @@ export class Course {
 }
 
 const ellie = new Person('엘리');
-ellie.courses.push(new Course('리팩토링', true));
+const course = new Course('리팩토링', true);
+ellie.addCourses(course);
+console.log(ellie.courses.length);
+ellie.removeCourses(course, () => { console.log('해당 코스가 없다.'); });
+ellie.removeCourses(course, () => { console.log('해당 코스가 없다.'); });
 console.log(ellie.courses.length);
