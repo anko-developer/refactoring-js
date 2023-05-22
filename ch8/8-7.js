@@ -1,10 +1,26 @@
-export function reportYoungestAgeAndTotalSalary(people) {
-  let youngest = people[0] ? people[0].age : Infinity;
-  let totalSalary = 0;
-  for (const p of people) {
-    if (p.age < youngest) youngest = p.age;
-    totalSalary += p.salary;
+const people = [
+  {
+    name: 'wook',
+    age: 36,
+    salary: 10,
+  },
+  {
+    name: 'ming',
+    age: 33,
+    salary: 20
   }
+];
 
-  return `youngestAge: ${youngest}, totalSalary: ${totalSalary}`;
+export function reportYoungestAgeAndTotalSalary(people) {
+  return `youngestAge: ${youngestAge()}, totalSalary: ${totalSalary()}`;
+
+  function youngestAge() {
+    return Math.min(...people.map(p => p.age));
+  }
+  
+  function totalSalary() {
+    return people.reduce((total, p) => (total += p.salary), 0);
+  }
 }
+
+console.log(reportYoungestAgeAndTotalSalary(people));
