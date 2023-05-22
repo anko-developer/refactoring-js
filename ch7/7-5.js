@@ -30,8 +30,7 @@ class Person {
 class TelephoneNumber {
   #areaCode;
   #number;
-  
-  constroctor(area, number) {
+  constructor(area, number) {
     this.#areaCode = area;
     this.#number = number;
   }
@@ -40,17 +39,17 @@ class TelephoneNumber {
     return this.#areaCode;
   }
 
-  // set areaCode(arg) {
-  //   this.#areaCode = arg;
-  // }
+  set areaCode(arg) {
+    this.#areaCode = arg;
+  }
 
   get number() {
     return this.#number;
   }
 
-  // set number(arg) {
-  //   this.#number = arg;
-  // }
+  set number(arg) {
+    this.#number = arg;
+  }
 
   get toString() {
     return `${this.#areaCode} ${this.#number}`;
@@ -58,14 +57,14 @@ class TelephoneNumber {
 }
 
 const telephoneNumber = new TelephoneNumber('010', '12345687');
-// telephoneNumber.areaCode = '99999';
-// telephoneNumber.number = '99999';
-telephoneNumber.toString;
 console.log(telephoneNumber.toString);
 console.log(telephoneNumber.number);
+console.log(telephoneNumber.areaCode);
+telephoneNumber.number = '9999999';
+console.log(telephoneNumber.toString);
 
-// const person = new Person('엘리', '010', '12345678');
-// console.log(person.name);
-// console.log(person.officeAreaCode);
-// console.log(person.officeNumber);
-// console.log(person.telephoneNumber);
+const person = new Person('엘리', '010', '12345678');
+console.log(person.name);
+console.log(person.officeAreaCode);
+console.log(person.officeNumber);
+console.log(person.telephoneNumber);
