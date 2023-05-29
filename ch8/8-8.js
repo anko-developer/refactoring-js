@@ -9,4 +9,4 @@ export function acquireData(input) {
       city: line[0].trim(), 
       phone: line[2].trim() 
     }));
-} 
+}
