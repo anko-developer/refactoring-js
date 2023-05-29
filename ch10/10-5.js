@@ -1,10 +1,19 @@
 export class Site {
+  #customer;
   constructor(customer) {
-    this._customer = customer;
+    this.#customer = customer;
   }
 
   get customer() {
-    return this._customer;
+    return this.#customer === 'unknown' 
+    ? new UnknownCustomer() 
+    : new Customer(this.#customer);
+  }
+}
+
+class UnknownCustomer extends Customer {
+  get name() {
+    return 'occupant';
   }
 }
 
@@ -34,9 +43,7 @@ export class Customer {
 export function customerName(site) {
   const aCustomer = site.customer;
   // 더 많은 코드가 여기에 있음
-  let customerName;
-  if (aCustomer === 'unknown') customerName = 'occupant';
-  else customerName = aCustomer.name;
+  const customerName = aCustomer.name;
 
   return customerName;
 }
