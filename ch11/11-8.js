@@ -14,4 +14,8 @@ export class Employee {
   static get legalTypeCodes() {
     return { E: 'Engineer', M: 'Manager', S: 'Salesman' };
   }
+
+  static createSeniorEngineer(name) {
+    return new Employee(name, 'E');
+  }
 }
