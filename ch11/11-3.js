@@ -1,19 +1,22 @@
 // 예제 1
-function setDimension(name, value) {
-  if (name === 'height') {
-    this._height = value;
-    return;
-  }
-  if (name === 'width') {
-    this._width = value;
-    return;
-  }
+function setWidth(value) {
+  this._width = value;
+}
+function setHeight(value) {
+  this._height = value;
 }
 
 // 예제 2
 class Concert {
-  book(customer, isPremium) {}
+  regularBook(customer) {}
+  preminumBook(customer) {}
+  #book(customer, isPreminum) {}
 }
 
 // 예제 3
-function setSwitch(on);
+function switchOn();
+function switchOff();
+
+
+// flag를 매개변수로 사용하는 것을 지양하자
+// 매개변수는 3개를 넘어선 안되고, 가장 좋은 함수는 매개변수가 없는 함수다
