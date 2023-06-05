@@ -19,7 +19,7 @@ class UnknownCustomer extends Customer {
 
 export class Customer {
   constructor(name) {
-    this._name = name;
+    this._name = name; 
   }
 
   get name() {
